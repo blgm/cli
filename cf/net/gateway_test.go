@@ -534,9 +534,9 @@ var _ = Describe("Gateway", func() {
 				}
 			})
 			It("returns an invalid cert error if the server's CA is unknown (e.g. cert is self-signed)", func() {
-				
+
 				apiServer.TLS.Certificates = []tls.Certificate{testnet.MakeSelfSignedTLSCert()}
-				
+
 				_, apiErr := ccGateway.PerformRequest(request)
 				certErr, ok := apiErr.(*errors.InvalidSSLCert)
 				Expect(ok).To(BeTrue())
