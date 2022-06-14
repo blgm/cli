@@ -30,7 +30,7 @@ func MakeUnauthorizedTLSCert() tls.Certificate {
 }
 
 func generateCert(hosts []string, notAfter time.Time, isAuthorizedToSign bool) tls.Certificate {
-	priv, err := rsa.GenerateKey(rand.Reader, 1024)
+	priv, err := rsa.GenerateKey(rand.Reader, 2048)
 	if err != nil {
 		panic(err)
 	}
@@ -58,7 +58,7 @@ func generateCert(hosts []string, notAfter time.Time, isAuthorizedToSign bool) t
 
 	if isAuthorizedToSign {
 		template.IsCA = true
-		template.KeyUsage |= x509.KeyUsageCertSign
+		template.KeyUsage |= x509.KeyUsageCertSign	
 	}
 
 	derBytes, err := x509.CreateCertificate(rand.Reader, &template, &template, &priv.PublicKey, priv)
