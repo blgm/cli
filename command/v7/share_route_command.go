@@ -19,8 +19,8 @@ type ShareRouteCommand struct {
 
 func (cmd ShareRouteCommand) Usage() string {
 	return `
-Share an existing route in between 2 spaces:
-	CF_NAME share-route Domain [--hostname HOSTNAME] [--path PATH] -s OTHER_SPACE [-o OTHER_ORG]`
+Share an existing route in between two spaces:
+	CF_NAME share-route DOMAIN [--hostname HOSTNAME] [--path PATH] -s OTHER_SPACE [-o OTHER_ORG]`
 }
 
 func (cmd ShareRouteCommand) Examples() string {
